@@ -1,4 +1,6 @@
-﻿using Prism;
+﻿using MyHomeSensors.Services;
+using MyHomeSensors.Services.Interfaces;
+using Prism;
 using Prism.Ioc;
 using MyHomeSensors.ViewModels;
 using MyHomeSensors.Views;
@@ -30,6 +32,9 @@ namespace MyHomeSensors
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.Register<IHttpService, HttpService>();
+            containerRegistry.Register<IApiService, ApiService>();
+            new ContainerManager(Container);
         }
     }
 }
