@@ -1,12 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:MyHomeSensors.Views;assembly=MyHomeSensors"
              x:Class="MyHomeSensors.Views.MainPage"
              Title="{Binding Title}">
+   <MasterDetailPage.Detail>
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-        <Button Text="Test" Command="{Binding TestCommand}"></Button>
-    </StackLayout>
-
-</ContentPage>
+ 
+        <NavigationPage Title="MyHomeSensors">
+            <x:Arguments>
+                <views:MyTabbedPage/>
+            </x:Arguments>
+        </NavigationPage>
+   </MasterDetailPage.Detail>
+</MasterDetailPage>

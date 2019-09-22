@@ -25,16 +25,20 @@ namespace MyHomeSensors
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("app:///"+$"{nameof(NavigationPageEx)}/"+nameof(MyTabbedPage));
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<NavigationPageEx>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.Register<IHttpService, HttpService>();
             containerRegistry.Register<IApiService, ApiService>();
             new ContainerManager(Container);
+            containerRegistry.RegisterForNavigation<MyTabbedPage, TabbedPageViewModel>();
+            containerRegistry.RegisterForNavigation<StartPage, StartPageViewModel>();
+     
         }
     }
 }

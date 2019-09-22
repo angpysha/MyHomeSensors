@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="MyHomeSensors.Views.StartPage"
+             Title="Start">
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Label Text="List of sensors data" HorizontalTextAlignment="Center" FontSize="18" FontAttributes="Bold"/>
+        <CollectionView ItemSizingStrategy="MeasureAllItems"
+                        ItemsSource="{Binding Sensors}"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        
+                        >
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <!--<Grid HorizontalOptions="FillAndExpand">
+                        <Label Text="Test"/>
+                    </Grid>-->
+                    <Frame CornerRadius="10" HasShadow="True" Margin="30">
+                        <StackLayout>
+                            <StackLayout BindableLayout.ItemsSource="{Binding Values}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Key,StringFormat='{0}:'}" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Value}"/>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
