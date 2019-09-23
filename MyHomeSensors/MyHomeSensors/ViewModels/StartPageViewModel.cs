@@ -29,7 +29,15 @@ namespace MyHomeSensors.ViewModels
         public override async void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
-            var data = await _apiService.Search(@"{""type"":""bmp180""}");
+            var date1 = DateTime.Now;
+            var datefrom = new DateTime(date1.Year, date1.Month, date1.Day, 0, 0, 0, DateTimeKind.Utc);
+            var dateto = new DateTime(date1.Year, date1.Month, date1.Day, 23, 59, 59, DateTimeKind.Utc);
+            var datefromStr = datefrom.ToString("yyyy-MM-dd HH:mm:ss"); 
+            var datetoStr = dateto.ToString("yyyy-MM-dd HH:mm:ss");
+            var str = @"{""datefrom"":""" + datefromStr + @""",""dateto"":""" + datetoStr + @"""}";
+            //var data = await _apiService.Search(String.Format(@"{""type"":""bmp180"",""datefrom"":""{0}"",""dateto"":""{1}""}",
+            //            datefromStr,datetoStr));
+            var data = await _apiService.Search(str);
             var convetedData = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(data);
             if (Sensors == null)
                 Sensors = new ObservableCollection<Sensor>();
