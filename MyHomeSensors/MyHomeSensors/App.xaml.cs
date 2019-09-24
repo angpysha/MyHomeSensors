@@ -38,7 +38,8 @@ namespace MyHomeSensors
             new ContainerManager(Container);
             containerRegistry.RegisterForNavigation<MyTabbedPage, TabbedPageViewModel>();
             containerRegistry.RegisterForNavigation<StartPage, StartPageViewModel>();
-     
+
+            containerRegistry.RegisterForNavigation<ChartsPage, ChartsPageViewModel>();
         }
     }
 }

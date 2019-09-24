@@ -3,6 +3,8 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:prism="http://prismlibrary.com"
             prism:ViewModelLocator.AutowireViewModel="True"
-            x:Class="MyHomeSensors.Views.MyTabbedPage">
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            x:Class="MyHomeSensors.Views.MyTabbedPage"
+            android:TabbedPage.ToolbarPlacement="Bottom">
     
 </TabbedPage>

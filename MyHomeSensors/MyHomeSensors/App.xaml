@@ -4,7 +4,15 @@
              xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
              x:Class="MyHomeSensors.App">
 	<Application.Resources>
+        <Style x:Key="NavPageStyle" TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="#2196F3"/>
+            <Setter Property="BarTextColor" Value="White" />
+        </Style>
 
+        <Style x:Key="TabPageStyle" TargetType="TabbedPage">
+            <Setter Property="BarBackgroundColor" Value="White"/>
+            <Setter Property="BarTextColor" Value="Black"/>
+        </Style>
 		<!-- Application resource dictionary -->
 
 	</Application.Resources>

@@ -6,7 +6,8 @@
              x:Class="MyHomeSensors.Views.StartPage"
              Title="Start">
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <Label Text="List of sensors data" HorizontalTextAlignment="Center" FontSize="18" FontAttributes="Bold"/>
+        <Label Text="Sensors data" HorizontalTextAlignment="Start" FontSize="25" FontAttributes="Italic"
+               TextColor="Black" Margin="15,5,5,5"/>
         <CollectionView ItemSizingStrategy="MeasureAllItems"
                         ItemsSource="{Binding Sensors}"
                         HorizontalOptions="FillAndExpand"
@@ -18,18 +19,16 @@
                         <Label Text="Test"/>
                     </Grid>-->
                     <StackLayout>
-                        <Frame CornerRadius="5" HasShadow="True" Margin="10" Padding="10">
-                            <StackLayout>
+                        <Frame CornerRadius="10" HasShadow="True" Margin="10" Padding="15" >
                                 <StackLayout BindableLayout.ItemsSource="{Binding Values}">
-                                    <BindableLayout.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackLayout Orientation="Horizontal">
-                                                <Label Text="{Binding Key,StringFormat='{0}:'}" FontAttributes="Bold" FontSize="18"/>
-                                                <Label Text="{Binding Value}" FontSize="18"/>
-                                            </StackLayout>
-                                        </DataTemplate>
-                                    </BindableLayout.ItemTemplate>
-                                </StackLayout>
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Key,StringFormat='{0}:'}" FontAttributes="Bold" FontSize="18" TextColor="Black"/>
+                                            <Label Text="{Binding Value}" FontSize="18" TextColor="Gray"/>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
                             </StackLayout>
                         </Frame>
                     </StackLayout>
