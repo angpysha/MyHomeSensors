@@ -83,10 +83,12 @@
     <PackageReference Include="Xamarin.AndroidX.Migration" Version="1.0.0-preview03" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContextContainer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\ExtendedTabbedPageRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PlatformService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -110,6 +112,14 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\MyHomeSensorsFaceRecognition.Android\MyHomeSensorsFaceRecognition.Android.csproj">
+      <Project>{c8718fb8-1c24-4873-954f-1f32e6b7c45a}</Project>
+      <Name>MyHomeSensorsFaceRecognition.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Tensorflow.Android\Tensorflow.Android.csproj">
+      <Project>{9432e89b-be5a-49c6-9a7a-a3e6758aa931}</Project>
+      <Name>Tensorflow.Android</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyHomeSensors\MyHomeSensors.csproj">
       <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
       <Name>MyHomeSensors</Name>
@@ -121,5 +131,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\statistics.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

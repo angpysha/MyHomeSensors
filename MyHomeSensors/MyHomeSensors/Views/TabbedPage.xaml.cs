@@ -7,7 +7,6 @@ namespace MyHomeSensors.Views
         public MyTabbedPage()
         {
             InitializeComponent();
-
             var startPage = new StartPage()
             {
                 IconImageSource = "start.png",
@@ -20,8 +19,20 @@ namespace MyHomeSensors.Views
                 IconImageSource = "statistics.png"
             };
 
+            var infoPage = new InfoPage()
+            {
+                Title = "Info",
+                //IconImageSource = "info.png"
+            };
+            this.CurrentPageChanged += MyTabbedPage_CurrentPageChanged;
             this.Children.Add(startPage);
             this.Children.Add(chartsPage);
+            this.Children.Add(infoPage);
+        }
+
+        private void MyTabbedPage_CurrentPageChanged(object sender, System.EventArgs e)
+        {
+            Title = CurrentPage.Title;
         }
     }
 }

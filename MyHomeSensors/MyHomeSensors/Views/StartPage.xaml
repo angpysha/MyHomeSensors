@@ -19,7 +19,7 @@
                         <Label Text="Test"/>
                     </Grid>-->
                     <StackLayout>
-                        <Frame CornerRadius="10" HasShadow="True" Margin="10" Padding="15" >
+                        <Frame CornerRadius="10" Margin="10" Padding="15" >
                                 <StackLayout BindableLayout.ItemsSource="{Binding Values}">
                                 <BindableLayout.ItemTemplate>
                                     <DataTemplate>

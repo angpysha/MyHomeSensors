@@ -1,6 +1,8 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using MyHomeSensors.Droid.Services;
+using MyHomeSensors.Services.Interfaces;
 using Prism;
 using Prism.Ioc;
 using Xamarin.Forms;
@@ -14,7 +16,8 @@ namespace MyHomeSensors.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
+            var container = new ContextContainer();
+            ContextContainer.Instance.Context = this;
             base.OnCreate(bundle);
             Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init(this, bundle);
@@ -27,6 +30,7 @@ namespace MyHomeSensors.Droid
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             // Register any platform specific implementations
+            containerRegistry.Register<IPlatformService, PlatformService>();
         }
     }
 }

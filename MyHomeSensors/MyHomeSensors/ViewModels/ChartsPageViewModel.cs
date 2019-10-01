@@ -5,11 +5,12 @@ using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-
+#nullable enable
 namespace MyHomeSensors.ViewModels
 {
     public class ChartsPageViewModel : ViewModelBase
@@ -46,6 +47,7 @@ namespace MyHomeSensors.ViewModels
             //            datefromStr,datetoStr));
             var data = await _apiService.Search(str);
             var convetedData = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(data);
+           
             if (Sensors == null)
                 Sensors = new ObservableCollection<Sensor>();
 
@@ -64,6 +66,8 @@ namespace MyHomeSensors.ViewModels
                 }
             }
 
+
+    
             Chart = new LineChart()
             {
                 Entries = entries
@@ -88,6 +92,10 @@ namespace MyHomeSensors.ViewModels
 
             var numbers = new List<double>();
             var entries = new List<ChartEntry>();
+            string? test = null;
+
+            var numm = convetedData.Select(x => x.FirstOrDefault(k => k.Key == "temperature"))
+               .Select(x => double.Parse(x.Value as string)).ToList();
             foreach (var item in convetedData)
             {
                 foreach (var pair in item)
@@ -96,21 +104,21 @@ namespace MyHomeSensors.ViewModels
                     {
                         var num = double.Parse(pair.Value as string);
                         numbers.Add(num);
-                        entries.Add(new ChartEntry((float)num) { Label = num.ToString("F2"),ValueLabel = num.ToString("F2")});
+                        entries.Add(new ChartEntry((float)num) { Label = num.ToString("F2"),ValueLabel = num.ToString("F2"),Color = SKColor.Parse("#3498db")});
                     }
                 }
             }
 
-            Chart = new PointChart()
+            Chart = new LineChart()
             {
                 Entries = entries,
-                PointSize = 3,
+                PointSize = 15,
                 PointMode = PointMode.Square,
                 LabelTextSize = 15,
                 IsAnimated = true,
                 MinValue = 0,
                 MaxValue = 35,
-
+                LineSize = 5
             };
         }
     }

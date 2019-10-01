@@ -11,10 +11,9 @@ namespace MyHomeSensors.Services
     public class HttpService : IHttpService
     {
         private static HttpClient _httpClient = new HttpClient();
-        public async Task<string> SendRequest(string url, HttpMethod httpMethod = null, string json = null) 
+        public async Task<string> SendRequest(string url, HttpMethod? httpMethod = default, string? json = null) 
         {
            var uri = new Uri(url);
-
            if (httpMethod == null)
                httpMethod = HttpMethod.Get;
            try

@@ -8,6 +8,6 @@ namespace MyHomeSensors.Services.Interfaces
 {
     public interface IHttpService
     {
-        Task<string> SendRequest(string url, HttpMethod httpMethod = null, string json = null);
+        Task<string> SendRequest(string url, HttpMethod? httpMethod = null, string? json = null);
     }
 }

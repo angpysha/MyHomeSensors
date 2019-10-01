@@ -17,7 +17,9 @@ namespace MyHomeSensors
          * This imposes a limitation in which the App class must have a default constructor. 
          * App(IPlatformInitializer initializer = null) cannot be handled by the Activator.
          */
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
         public App() : this(null) { }
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 
         public App(IPlatformInitializer initializer) : base(initializer) { }
 
@@ -40,6 +42,7 @@ namespace MyHomeSensors
             containerRegistry.RegisterForNavigation<StartPage, StartPageViewModel>();
 
             containerRegistry.RegisterForNavigation<ChartsPage, ChartsPageViewModel>();
+            containerRegistry.RegisterForNavigation<InfoPage, InfoPageViewModel>();
         }
     }
 }

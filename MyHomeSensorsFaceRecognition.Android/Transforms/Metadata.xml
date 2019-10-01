@@ -1,0 +1,85 @@
+﻿<metadata>
+  <!--
+  This sample removes the class: android.support.v4.content.AsyncTaskLoader.LoadTask:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='AsyncTaskLoader.LoadTask']" />
+  
+  This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
+  <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
+  -->
+
+  <add-node path="/api/package[@name='io.github.angpysha.env']/class[@name='Size']">
+    <method name="compareTo" return="int" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" visibility="public">
+      <parameter name="p0"  type="java.lang.Object" />
+    </method>
+  </add-node>
+  <!--<add-node path="/api/package[@name='pp.facerecognizer']/class[@name='CameraConnectionFragment.CompareSizesByArea']">
+  <method name="compareTo" return="int" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" visibility="public">
+      <parameter name="p0"  type="java.lang.Object" />
+      <parameter name="p1"  type="java.lang.Object"/>
+    </method> 
+</add-node>-->
+<!--<add-node path="/api/package[@name='pp.facerecognizer.env']">
+  <class abstract="false" static="true" visibility="private" extends="java.lang.Object" deprecated="not deprecated" final="false">
+    
+  </class>
+</add-node>-->
+<add-node path="/api/package[@name='io.github.angpysha']">
+  <class abstract="true" deprecated="not deprecated" final="false" name="CameraActivity" visibility="public"
+         extends="androidx.appcompat.app.AppCompatActivity" implements="android.media.ImageReader.OnImageAvailableListener">
+    <method  name="chooseCamera" return="java.lang.String" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected">
+
+    </method>
+    <method name="getRgbBytes" return="int[]" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected">
+
+    </method>
+
+    <method name="getLuminanceStride" return="int" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected"/>
+    <method name="getLuminance" return="byte[]" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected"/>
+    <method name="runInBackground" return="void" abstract="false" native="false" synchronized="true" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected">
+      <parameter name="p0" type="java.lang.Runnable"/>
+    </method>
+    <method name="hasPermission" return="boolean" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected"/>
+    <method name="requestPermission" return="void" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected"/>
+    <method name="setFragment" return="void" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected"/>
+    <method name="fillBytes" return="void" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected">
+      <parameter name="p0" type="android.media.Image.Plane[]"/>
+      <parameter name="p1" type="byte[][]"/>
+    </method>
+    <method name="isDebug" return="boolean" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="public"/>
+    <method name="requestRender" return="void" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="public"/>
+    <method name="addCallback" return="void" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="public">
+      <parameter name="p0" type="io.github.angpysha.OverlayView.DrawCallback"/>
+    </method>
+    <method name="readyForNextImage" return="void" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected"/>
+    <method name="getScreenOrientation" return="int" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected"/>
+    <method name="processImage" return="void" abstract="true" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected"/>
+    <method name="onPreviewSizeChosen" return="void" abstract="true" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected">
+      <parameter name="p0" type="android.util.Size"/>
+      <parameter name="p1" type="int"/>
+    </method>
+    
+    <method name="getLayoutId" return="int" abstract="true" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected"/>
+
+    <method name="getDesiredPreviewFrameSize" return="android.util.Size" abstract="true" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected"/>
+
+  </class>
+</add-node>
+<add-node path="/api/package[@name='io.github.angpysha']">
+  <class abstract="false" deprecated="not deprecated" final="false" name="MainActivity" visibility="public" extends="io.github.angpysha.CameraActivity"
+         implements="android.media.ImageReader.OnImageAvailableListener">
+    <method name="getLayoutId" return="int" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected"/>
+    <method name="getDesiredPreviewFrameSize" return="android.util.Size" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected"/>
+    <method name="onPreviewSizeChosen" return="void" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected">
+      <parameter name="p0" type="android.util.Size"/>
+      <parameter name="p1" type="int"/>
+    </method>
+    <method name="processImage" return="void" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected"/>
+    <method name="init" return="void" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="protected"/>
+    <method name="performFileSearch" return="void" abstract="false" native="false" synchronized="false" static="false" final="false" deprecated="not deprecated" virtual="false" visibility="public">
+      <parameter name="requestCode" type="int"/>
+    </method>
+
+
+  </class>
+</add-node>
+</metadata>

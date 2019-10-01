@@ -15,6 +15,12 @@ namespace MyHomeSensors.Views
         public NavigationPageEx()
         {
             InitializeComponent();
+            this.Pushed += NavigationPageEx_Pushed;
+        }
+
+        private void NavigationPageEx_Pushed(object sender, NavigationEventArgs e)
+        {
+            Title = e.Page.Title;
         }
     }
 }

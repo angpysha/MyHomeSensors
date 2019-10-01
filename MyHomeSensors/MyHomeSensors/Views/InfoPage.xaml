@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="MyHomeSensors.Views.InfoPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="About" FontSize="26" TextColor="Black" Margin="10" FontAttributes="Bold"/>
+        <Label Margin="10" Grid.Row="1">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="This application provides access to Sensors API, which is masters deggree research"/>
+                        <Span Text="I provide 2 funtions in this app: sensros data info and their charts"/>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Button Text="Open face recognition" Command="{Binding OpenFaceRecognitionPageCommand}"/>
+    </Grid>
+</ContentPage>
