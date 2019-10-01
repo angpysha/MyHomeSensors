@@ -1,4 +1,6 @@
 ﻿using Foundation;
+using MyHomeSensors.iOS.Services;
+using MyHomeSensors.Services.Interfaces;
 using Prism;
 using Prism.Ioc;
 using UIKit;
@@ -33,6 +35,7 @@ namespace MyHomeSensors.iOS
     {
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<IPlatformService,PlatformService>();
             // Register any platform specific implementations
         }
     }

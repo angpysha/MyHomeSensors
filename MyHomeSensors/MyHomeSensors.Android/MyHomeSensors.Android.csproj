@@ -121,7 +121,7 @@
       <Name>Tensorflow.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyHomeSensors\MyHomeSensors.csproj">
-      <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
+      <Project>{A9F04FEF-6620-4662-9387-658FEE11A3F5}</Project>
       <Name>MyHomeSensors</Name>
     </ProjectReference>
   </ItemGroup>

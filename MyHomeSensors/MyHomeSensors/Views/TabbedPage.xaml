@@ -5,6 +5,7 @@
             prism:ViewModelLocator.AutowireViewModel="True"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             x:Class="MyHomeSensors.Views.MyTabbedPage"
-            android:TabbedPage.ToolbarPlacement="Bottom">
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            >
     
 </TabbedPage>

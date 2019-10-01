@@ -103,6 +103,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <ITunesArtwork Include="iTunesArtwork@1x.png" />
     <ITunesArtwork Include="iTunesArtwork@2x.png" />
+    <Compile Include="Services\PlatformService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json">
@@ -152,6 +153,10 @@
     <BundleResource Include="Resources\Default.png" />
     <BundleResource Include="Resources\Default@2x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\start%402x.png" />
+    <BundleResource Include="Resources\start%403x.png" />
+    <BundleResource Include="Resources\statistics%403x.png" />
+    <BundleResource Include="Resources\statistics%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -174,7 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyHomeSensors\MyHomeSensors.csproj">
-      <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
+      <Project>{A9F04FEF-6620-4662-9387-658FEE11A3F5}</Project>
       <Name>MyHomeSensors</Name>
     </ProjectReference>
   </ItemGroup>
@@ -183,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\statistics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
