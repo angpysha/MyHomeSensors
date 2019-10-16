@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Lottie.Forms.iOS.Renderers;
 using MyHomeSensors.iOS.Services;
 using MyHomeSensors.Services.Interfaces;
 using Prism;
@@ -25,6 +26,7 @@ namespace MyHomeSensors.iOS
         {
             Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            AnimationViewRenderer.Init();
             LoadApplication(new App(new iOSInitializer()));
 
             return base.FinishedLaunching(app, options);

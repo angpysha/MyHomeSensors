@@ -4,36 +4,86 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="MyHomeSensors.Views.StartPage"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              Title="Start">
+    <Grid>
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <Label Text="Sensors data" HorizontalTextAlignment="Start" FontSize="25" FontAttributes="Italic"
                TextColor="Black" Margin="15,5,5,5"/>
-        <CollectionView ItemSizingStrategy="MeasureAllItems"
+        <DatePicker Date="{Binding Date}">
+            <DatePicker.Behaviors>
+                <prism:EventToCommandBehavior EventName="DateSelected"
+                                              Command="{Binding DateSelectedCommand}"
+                                              EventArgsParameterPath="NewDate"/>
+            </DatePicker.Behaviors>
+        </DatePicker>
+            <Grid>
+                <CollectionView ItemSizingStrategy="MeasureAllItems"
                         ItemsSource="{Binding Sensors}"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="FillAndExpand" >
-            
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <!--<Grid HorizontalOptions="FillAndExpand">
-                        <Label Text="Test"/>
-                    </Grid>-->
-                    <StackLayout>
-                        <Frame CornerRadius="10" Margin="10" Padding="15" >
-                                <StackLayout BindableLayout.ItemsSource="{Binding Values}">
-                                <BindableLayout.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="{Binding Key,StringFormat='{0}:'}" FontAttributes="Bold" FontSize="18" TextColor="Black"/>
-                                            <Label Text="{Binding Value}" FontSize="18" TextColor="Gray"/>
-                                        </StackLayout>
-                                    </DataTemplate>
-                                </BindableLayout.ItemTemplate>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame CornerRadius="10" Margin="10" Padding="15" >
+                                    <StackLayout BindableLayout.ItemsSource="{Binding Values}">
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="{Binding Key,StringFormat='{0}:'}" FontAttributes="Bold" FontSize="18" TextColor="Black"/>
+                                                    <Label Text="{Binding Value}" FontSize="18" TextColor="Gray"/>
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </StackLayout>
+                                </Frame>
                             </StackLayout>
-                        </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand" IsVisible="False">
+                    <StackLayout.Triggers>
+                        <MultiTrigger TargetType="StackLayout">
+                            <Setter Property="IsVisible" Value="True"/>
+                            <MultiTrigger.Conditions>
+                                <BindingCondition Binding="{Binding IsLoading}" Value="False"/>
+                                <BindingCondition Binding="{Binding IsEmpty}" Value="True"/>
+                            </MultiTrigger.Conditions>
+                        </MultiTrigger>
+                    </StackLayout.Triggers>
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <ffimageloadingsvg:SvgCachedImage WidthRequest="100" HeightRequest="100"
+                                              Source="resource://MyHomeSensors.Resources.information.svg"/>
+                        <Label Text="Cannot get data for this date" HorizontalOptions="CenterAndExpand" FontSize="18"
+                       Margin="0,50,0,0" FontAttributes="Bold"/>
                     </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand" IsVisible="{Binding IsLoading}">
+            <!--<StackLayout.Triggers>
+                <MultiTrigger TargetType="StackLayout">
+                    <Setter Property="IsVisible" Value="True"/>
+                    <MultiTrigger.Conditions>
+                        <BindingCondition Binding="{Binding IsLoading}" Value="True"/>
+                        
+                    </MultiTrigger.Conditions>
+                </MultiTrigger>
+            </StackLayout.Triggers>-->
+            <forms:AnimationView HorizontalOptions="CenterAndExpand"
+                                 VerticalOptions="CenterAndExpand"
+                                 Loop="{Binding IsLoading}"
+                                 IsEnabled="{Binding IsLoading}"
+                                 IsPlaying="{Binding IsLoading}"
+                                 WidthRequest="100"
+                                 HeightRequest="100"
+                                 Animation="spinner.json"
+                                 IsVisible="{Binding IsLoading}"/>
+        </StackLayout>
+       
+    </Grid>
 </ContentPage>

@@ -20,6 +20,9 @@ namespace MyHomeSensors.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
+        public bool IsLoading { get; set; }
+        public bool IsEmpty { get; set; }
+
         public ViewModelBase(INavigationService navigationService,IApiService apiService)
         {
             NavigationService = navigationService;

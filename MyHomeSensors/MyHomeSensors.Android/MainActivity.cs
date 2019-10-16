@@ -1,6 +1,9 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using FFImageLoading.Forms.Platform;
+using FFImageLoading.Svg.Forms;
+using Lottie.Forms.Droid;
 using MyHomeSensors.Droid.Services;
 using MyHomeSensors.Services.Interfaces;
 using Prism;
@@ -21,6 +24,9 @@ namespace MyHomeSensors.Droid
             base.OnCreate(bundle);
             Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            CachedImageRenderer.Init(true);
+            var ignore = typeof(SvgCachedImage);
+            AnimationViewRenderer.Init();
             LoadApplication(new App(new AndroidInitializer()));
         }
     }

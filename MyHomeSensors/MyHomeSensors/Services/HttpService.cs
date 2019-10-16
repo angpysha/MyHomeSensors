@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using ModernHttpClient;
 using MyHomeSensors.Services.Interfaces;
 using Newtonsoft.Json;
 
@@ -10,7 +11,7 @@ namespace MyHomeSensors.Services
 {
     public class HttpService : IHttpService
     {
-        private static HttpClient _httpClient = new HttpClient();
+        private static HttpClient _httpClient = new HttpClient(new NativeMessageHandler());
         public async Task<string> SendRequest(string url, HttpMethod? httpMethod = default, string? json = null) 
         {
            var uri = new Uri(url);
@@ -38,6 +39,7 @@ namespace MyHomeSensors.Services
                           // var result = JsonConvert.DeserializeObject<T>(responseString);
                            return responseString;
                        } 
+                       
                        return string.Empty;
                    }
                }
